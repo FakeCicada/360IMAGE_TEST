@@ -4,120 +4,127 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>新2000系車内360度</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
     <style>
-    #panorama {
-        width: 500px;
-        height: 500px;
-    }
+       html {
+    height: 100%
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    cursor: default;
+  }
+  #panorama {
+    width: 100%;
+    height: 100%;
+  }
     </style>
 </head>
 <body>
+    <div id="panorama"></div>
 
-<div id="panorama"></div>
-<script>
-pannellum.viewer('panorama', {   
-    "default": {
-        "firstScene": "cab_center",
-        "author": "FakeCicada",
-        "sceneFadeDuration": 1000
-    },
+    <script>
+        pannellum.viewer('panorama', {
+            "default": {
+                "firstScene": "cab_center",
+                "sceneFadeDuration": 1000
+            },
 
-    "scenes": {
-        "cab_center": {
-            "title": "Cab Center",
-            "hfov": 110,
-            "yaw": 180,
-            "type": "equirectangular",
-            "panorama": "../360IMAGE_TEST/img/n2000_360_c.png",
-            "hotSpots": [
-                {
-                    "pitch": 0,
-                    "yaw": 90,
-                    "type": "scene",
-                    "text": "Driver",
-                    "sceneId": "driver"
-                },
-				{
-                    "pitch": 0,
-                    "yaw": -90,
-                    "type": "scene",
-                    "text": "Cab",
-                    "sceneId": "driver2"
-                },
-				{
-                    "pitch": 0,
-                    "yaw": 0,
-                    "type": "scene",
-                    "text": "客室",
-                    "sceneId": "passenger"
-                }
-            ]
-        },
-
-        "driver": {
-            "title": "Driver",
-            "hfov": 110,
-            "yaw": 180,
-            "type": "equirectangular",
-            "panorama": "../360IMAGE_TEST/img/n2000_360_d.png",
-            "hotSpots": [
-                {
-                    "pitch": 0,
-                    "yaw": -90,
-                    "type": "scene",
-                    "text": "Cab Center",
-                    "sceneId": "cab_center",
-                    "targetYaw": -23,
-                    "targetPitch": 2
-                }
-            ]
-        },
-
-		"driver2": {
-            "title": "Cab",
-            "hfov": 110,
-            "yaw": 180,
-            "type": "equirectangular",
-            "panorama": "../360IMAGE_TEST/img/n2000_360_d2.png",
-            "hotSpots": [
-                {
-                    "pitch": 0,
-                    "yaw": 90,
-                    "type": "scene",
-                    "text": "Cab Center",
-                    "sceneId": "cab_center",
-                    "targetYaw": -23,
-                    "targetPitch": 2
-                }
-            ]
-        },
-
-		"passenger": {
-            "title": "客室",
-            "hfov": 110,
-            "yaw": 180,
-            "type": "equirectangular",
-            "panorama": "../360IMAGE_TEST/img/n2000_360_p1.png",
-            "hotSpots": [
-                {
-                    "pitch": 0,
+            "scenes": {
+                "cab_center": {
+                    "title": "Cab Center",
+                    "hfov": 110,
                     "yaw": 180,
-                    "type": "scene",
-                    "text": "Cab Center",
-                    "sceneId": "cab_center",
-                    "targetYaw": -23,
-                    "targetPitch": 2
-                }
-            ]
-        }
-    }
-});
-vm.viewer.on('load', function() {
-    vm.viewer.toggleFullscreen();
-});
-</script>
+                    "type": "equirectangular",
+                    "panorama": "../360IMAGE_TEST/img/n2000_360_c.png",
+                    "hotSpots": [
+                        {
+                            "pitch": 0,
+                            "yaw": 90,
+                            "type": "scene",
+                            "text": "Driver",
+                            "sceneId": "driver"
+                        },
+                        {
+                            "pitch": 0,
+                            "yaw": -90,
+                            "type": "scene",
+                            "text": "Cab",
+                            "sceneId": "driver2"
+                        },
+                        {
+                            "pitch": 0,
+                            "yaw": 0,
+                            "type": "scene",
+                            "text": "客室",
+                            "sceneId": "passenger"
+                        }
+                    ]
+                },
 
+                "driver": {
+                    "title": "Driver",
+                    "hfov": 110,
+                    "yaw": 180,
+                    "type": "equirectangular",
+                    "panorama": "../360IMAGE_TEST/img/n2000_360_d.png",
+                    "hotSpots": [
+                        {
+                            "pitch": 0,
+                            "yaw": -90,
+                            "type": "scene",
+                            "text": "Cab Center",
+                            "sceneId": "cab_center",
+                            "targetYaw": -23,
+                            "targetPitch": 2
+                        }
+                    ]
+                },
+
+                "driver2": {
+                    "title": "Cab",
+                    "hfov": 110,
+                    "yaw": 180,
+                    "type": "equirectangular",
+                    "panorama": "../360IMAGE_TEST/img/n2000_360_d2.png",
+                    "hotSpots": [
+                        {
+                            "pitch": 0,
+                            "yaw": 90,
+                            "type": "scene",
+                            "text": "Cab Center",
+                            "sceneId": "cab_center",
+                            "targetYaw": -23,
+                            "targetPitch": 2
+                        }
+                    ]
+                },
+
+                "passenger": {
+                    "title": "客室",
+                    "hfov": 110,
+                    "yaw": 180,
+                    "type": "equirectangular",
+                    "panorama": "../360IMAGE_TEST/img/n2000_360_p1.png",
+                    "hotSpots": [
+                        {
+                            "pitch": 0,
+                            "yaw": 180,
+                            "type": "scene",
+                            "text": "Cab Center",
+                            "sceneId": "cab_center",
+                            "targetYaw": -23,
+                            "targetPitch": 2
+                        }
+                    ]
+                }
+            }
+        });
+    </script>
 </body>
 </html>
