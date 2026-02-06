@@ -8,8 +8,8 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
     <style>
     #panorama {
-        width: 100%;
-        height: 100%;
+        width: 500px;
+        height: 500px;
     }
     </style>
 </head>
@@ -113,6 +113,9 @@ pannellum.viewer('panorama', {
             ]
         }
     }
+});
+vm.viewer.on('load', function() {
+    vm.viewer.toggleFullscreen();
 });
 </script>
 
